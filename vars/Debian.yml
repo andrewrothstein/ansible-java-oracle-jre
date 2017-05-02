@@ -1,2 +1,8 @@
 ---
-java_home: /usr/lib/jvm/java-{{java_ver}}-oracle
+java_oracle_jre_home: /usr/lib/jvm/java-{{java_ver}}-oracle
+
+java_oracle_jre_setup: ppa
+
+java_oracle_jre_pkgs:
+  - oracle-java{{java_ver}}-installer
+  - oracle-java{{java_ver}}-set-default

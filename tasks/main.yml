@@ -1,19 +1,32 @@
 ---
 - name: resolve platform specific vars
-  include_vars: "{{item}}"
+  include_vars: '{{item}}'
   with_first_found:
-    - "{{ansible_distribution}}-{{ansible_distribution_release}}.yml"
-    - "{{ansible_distribution}}.yml"
-    - "{{ansible_os_family}}.yml"
+    - files:
+        - '{{ansible_distribution}}-{{ansible_distribution_release}}.yml'
+        - '{{ansible_distribution}}.yml'
+        - '{{ansible_os_family}}.yml'
+      skip: true
+      paths:
+        - '{{role_path}}/vars'
 
-- include: oracle.yml
+- include: '{{java_oracle_jre_setup}}.yml'
+
+- name : install pkgs
+  become: yes
+  become_user: root
+  with_items: '{{java_oracle_jre_pkgs}}'
+  package:
+    name: '{{item}}'
+    state: present
   
 - name: set JAVA_HOME...
   become: yes
   become_user: root
   with_items:
-    - etc/profile.d/java.sh
-  template: >
-    src={{item}}.j2
-    dest=/{{item}}
-    mode=0644
+    - f: oracle-jre.sh
+      d: /etc/profile.d
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m|default("0644")}}'

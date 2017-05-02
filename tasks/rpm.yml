@@ -1,0 +1,9 @@
+---
+- name: download rpm
+  become: yes
+  become_user: root
+  get_url:
+    headers: Cookie:oraclelicense=accept-securebackup-cookie
+    url: '{{java_oracle_jre_url}}'
+    dest: '{{java_oracle_jre_local_rpm}}'
+    mode: 0644
