@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-java-oracle-jre.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-java-oracle-jre)
 andrewrothstein.java-oracle-jre
 =========
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-java-oracle-jre.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-java-oracle-jre)
 
 Oracle JRE
 
