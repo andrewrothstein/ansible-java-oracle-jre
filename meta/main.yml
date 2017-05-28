@@ -16,11 +16,14 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
-
   galaxy_tags:
     - java
     - jre
     - oracle
 
-dependencies: []
+dependencies:
+  - role: andrewrothstein.java-oracle
+    version: v1.0.0
+    java_oracle_prefix: jre
+
   
