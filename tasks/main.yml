@@ -5,8 +5,9 @@
   with_items:
     - f: oracle-jre.sh
       d: /etc/profile.d
-      m: '0644'
+    - f: oracle-jre.env
+      d: '{{java_oracle_jre_home}}'
   template:
     src: '{{item.f}}.j2'
     dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m}}'
+    mode: '{{item.m|default("0644")}}'
