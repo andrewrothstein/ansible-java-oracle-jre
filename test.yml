@@ -2,3 +2,7 @@
 - hosts: all
   roles:
     - role: '{{playbook_dir}}'
+      java_oracle_cleanup: True
+  tasks:
+    - name: test java
+      command: /usr/local/java/bin/java -version
