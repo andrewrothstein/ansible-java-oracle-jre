@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-n  description: installs Oracle Java JRE
+  description: installs Oracle Java JRE
   company: BlackRock
   license:
     - MIT
