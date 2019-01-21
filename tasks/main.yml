@@ -6,8 +6,8 @@
     - f: oracle-jre.sh
       d: /etc/profile.d
     - f: oracle-jre.env
-      d: '{{java_oracle_jre_home}}'
+      d: '{{ java_oracle_jre_home }}'
   template:
-    src: '{{item.f}}.j2'
-    dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m|default("0644")}}'
+    src: '{{ item.f }}.j2'
+    dest: '{{ item.d }}/{{ item.f }}'
+    mode: '{{ item.m|default("0644") }}'
